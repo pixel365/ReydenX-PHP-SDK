@@ -9,6 +9,16 @@ trait OrderTrait
     protected int $orderId = 0;
 
     /**
+     * @param int $orderId Order ID
+     * @return $this
+     */
+    public function setOrderId(int $orderId): static
+    {
+        $this->orderId = $orderId;
+        return $this;
+    }
+
+    /**
      * @return void
      * @throws InvalidParamsException
      */

@@ -19,16 +19,6 @@ class Action
     }
 
     /**
-     * @param int $orderId
-     * @return $this
-     */
-    public function setOrderId(int $orderId): self
-    {
-        $this->orderId = $orderId;
-        return $this;
-    }
-
-    /**
      * Run the Order
      *
      * @link https://api.reyden-x.com/docs#/default/order_run_v1_orders__order_id__action_run__patch

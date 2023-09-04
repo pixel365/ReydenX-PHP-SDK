@@ -24,16 +24,6 @@ class Order
     }
 
     /**
-     * @param int $orderId Order ID
-     * @return $this
-     */
-    public function setOrderId(int $orderId): self
-    {
-        $this->orderId = $orderId;
-        return $this;
-    }
-
-    /**
      * List of Orders
      *
      * @link https://api.reyden-x.com/docs#/default/orders_v1_orders__get
