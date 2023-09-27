@@ -19,6 +19,7 @@ class Order implements IDecoder
     public ?array $parameters = null;
     public ?array $extras = null;
     public ?array $statistics = null;
+    public array $contentClassificationLabels = [];
 
     public function __construct(array $data)
     {
@@ -78,6 +79,8 @@ class Order implements IDecoder
             $this->extras = $data['extras'];
         if (isset($data['statistics']))
             $this->statistics = $data['statistics'];
+        if (isset($data['content_classification_labels']))
+            $this->contentClassificationLabels = $data['content_classification_labels'];
         return $this;
     }
 }
