@@ -21,7 +21,7 @@ class Action
     /**
      * Run the Order
      *
-     * @link https://api.reyden-x.com/docs#/default/order_run_v1_orders__order_id__action_run__patch
+     * @link https://api.reyden-x.com/docs#/Orders/order_run_v1_orders__order_id__action_run__patch
      * @return ActionResult
      * @throws BaseException
      *
@@ -41,7 +41,7 @@ class Action
     /**
      * Stop the Order
      *
-     * @link https://api.reyden-x.com/docs#/default/order_stop_v1_orders__order_id__action_stop__patch
+     * @link https://api.reyden-x.com/docs#/Orders/order_stop_v1_orders__order_id__action_stop__patch
      * @return ActionResult
      * @throws InvalidParamsException
      *
@@ -61,7 +61,7 @@ class Action
     /**
      * Cancel the Order
      *
-     * @link https://api.reyden-x.com/docs#/default/order_cancel_v1_orders__order_id__action_cancel__patch
+     * @link https://api.reyden-x.com/docs#/Orders/order_cancel_v1_orders__order_id__action_cancel__patch
      * @return ActionResult
      * @throws BaseException
      *
@@ -81,7 +81,7 @@ class Action
     /**
      * Change the number of viewers
      *
-     * @link https://api.reyden-x.com/docs#/default/order_change_online_v1_orders__order_id__action_change_online__value___patch
+     * @link https://api.reyden-x.com/docs#/Orders/order_change_online_v1_orders__order_id__action_change_online__value___patch
      * @param int $value
      * @return ActionResult
      * @throws BaseException
@@ -102,7 +102,7 @@ class Action
     /**
      * Change the time of the smooth set of viewers
      *
-     * @link https://api.reyden-x.com/docs#/default/change_increase_value_v1_orders__order_id__action_increase_change__value___patch
+     * @link https://api.reyden-x.com/docs#/Orders/change_increase_value_v1_orders__order_id__action_increase_change__value___patch
      * @param int $value
      * @return ActionResult
      * @throws BaseException
@@ -123,7 +123,7 @@ class Action
     /**
      * Enable smooth increase of viewers
      *
-     * @link https://api.reyden-x.com/docs#/default/increase_on_v1_orders__order_id__action_increase_on__value___patch
+     * @link https://api.reyden-x.com/docs#/Orders/increase_on_v1_orders__order_id__action_increase_on__value___patch
      * @param int $value
      * @return ActionResult
      * @throws BaseException
@@ -144,7 +144,7 @@ class Action
     /**
      * Disable smooth increase of viewers
      *
-     * @link https://api.reyden-x.com/docs#/default/increase_off_v1_orders__order_id__action_increase_off__patch
+     * @link https://api.reyden-x.com/docs#/Orders/increase_off_v1_orders__order_id__action_increase_off__patch
      * @return ActionResult
      * @throws BaseException
      *
@@ -164,7 +164,7 @@ class Action
     /**
      * Add views to Order
      *
-     * @link https://api.reyden-x.com/docs#/default/add_views_v1_orders__order_id__action_add_views__value___patch
+     * @link https://api.reyden-x.com/docs#/Orders/add_views_v1_orders__order_id__action_add_views__value___patch
      * @param int $value
      * @return ActionResult
      * @throws BaseException
@@ -185,7 +185,7 @@ class Action
     /**
      * Check the task status
      *
-     * @link https://api.reyden-x.com/docs#/default/order_get_task_status_v1_orders__order_id__task__task_id__status__get
+     * @link https://api.reyden-x.com/docs#/Orders/order_get_task_status_v1_orders__order_id__task__task_id__status__get
      * @param string $taskId
      * @return TaskStatus
      * @throws BaseException

@@ -26,7 +26,7 @@ class Order
     /**
      * List of Orders
      *
-     * @link https://api.reyden-x.com/docs#/default/orders_v1_orders__get
+     * @link https://api.reyden-x.com/docs#/Orders/orders_v1_orders__get
      * @param string|null $cursor
      * @return Result
      * @throws BaseException
@@ -74,7 +74,7 @@ class Order
     /**
      * Order details
      *
-     * @link https://api.reyden-x.com/docs#/default/order_details_v1_orders__order_id___get
+     * @link https://api.reyden-x.com/docs#/Orders/order_details_v1_orders__order_id___get
      * @return Result
      * @throws BaseException
      *
@@ -94,7 +94,7 @@ class Order
     /**
      * Order payments
      *
-     * @link https://api.reyden-x.com/docs#/default/order_payments_v1_orders__order_id__payments__get
+     * @link https://api.reyden-x.com/docs#/Orders/order_payments_v1_orders__order_id__payments__get
      * @param string|null $cursor
      * @return Result
      * @throws BaseException
@@ -144,7 +144,7 @@ class Order
     /**
      * Detailed information about users online
      *
-     * @link https://api.reyden-x.com/docs#/default/order_stats_online_v1_orders__order_id__statistics_online__get
+     * @link https://api.reyden-x.com/docs#/Orders/order_stats_online_v1_orders__order_id__statistics_online__get
      * @return Result
      * @throws BaseException
      *
@@ -164,7 +164,7 @@ class Order
     /**
      * Detailed information about clicks
      *
-     * @link https://api.reyden-x.com/docs#/default/order_stats_clicks_v1_orders__order_id__statistics_clicks__get
+     * @link https://api.reyden-x.com/docs#/Orders/order_stats_clicks_v1_orders__order_id__statistics_clicks__get
      * @return Result
      * @throws BaseException
      *
@@ -184,7 +184,7 @@ class Order
     /**
      * Detailed information about views
      *
-     * @link https://api.reyden-x.com/docs#/default/order_stats_views_v1_orders__order_id__statistics_views__get
+     * @link https://api.reyden-x.com/docs#/Orders/order_stats_views_v1_orders__order_id__statistics_views__get
      * @return Result
      * @throws BaseException
      *
@@ -204,7 +204,7 @@ class Order
     /**
      * Detailed information about sites
      *
-     * @link https://api.reyden-x.com/docs#/default/order_stats_sites_v1_orders__order_id__statistics_sites__get
+     * @link https://api.reyden-x.com/docs#/Orders/order_stats_sites_v1_orders__order_id__statistics_sites__get
      * @return Result
      * @throws BaseException
      *
@@ -227,8 +227,8 @@ class Order
      * @param NewOrderParams $params
      * @return ActionResult
      * @throws NotImplementedException|BaseException
-     * @link https://api.reyden-x.com/docs#/default/youtube_stream_v1_orders_create_youtube_stream__post
-     * @link https://api.reyden-x.com/docs#/default/twitch_stream_v1_orders_create_twitch_stream__post
+     * @link https://api.reyden-x.com/docs#/Orders/youtube_stream_v1_orders_create_youtube_stream__post
+     * @link https://api.reyden-x.com/docs#/Orders/twitch_stream_v1_orders_create_twitch_stream__post
      *
      * @example for Twitch:
      * $params = new NewOrderParams([
@@ -291,7 +291,7 @@ class Order
     /**
      * View statistics for multiple orders
      *
-     * @link https://api.reyden-x.com/docs#/default/multiple_views_v1_orders_multiple_views__post
+     * @link https://api.reyden-x.com/docs#/Orders/multiple_views_v1_orders_multiple_views__post
      * @param array $ids Array of orders identifiers (max. 100 ids)
      * @return Result
      * @throws BaseException
@@ -311,7 +311,7 @@ class Order
     /**
      * Click-through statistics for multiple orders
      *
-     * @link https://api.reyden-x.com/docs#/default/multiple_clicks_v1_orders_multiple_clicks__post
+     * @link https://api.reyden-x.com/docs#/Orders/multiple_clicks_v1_orders_multiple_clicks__post
      * @param array $ids Array of orders identifiers (max. 100 ids)
      * @return Result
      * @throws BaseException

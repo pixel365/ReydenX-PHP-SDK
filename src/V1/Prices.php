@@ -17,7 +17,7 @@ class Prices
     }
 
     /**
-     * @link https://api.reyden-x.com/docs#/default/prices_v1_prices__platform_code___get
+     * @link https://api.reyden-x.com/docs#/Prices/prices_v1_prices__platform_code___get
      * @param Platform $platform
      * @return Result
      * @throws BaseException

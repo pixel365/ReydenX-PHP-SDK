@@ -16,7 +16,7 @@ class User
     }
 
     /**
-     * @link https://api.reyden-x.com/docs#/default/get_balance_v1_user_balance__get
+     * @link https://api.reyden-x.com/docs#/User/get_balance_v1_user_balance__get
      * @return Balance
      * @throws BaseException
      *
@@ -33,7 +33,7 @@ class User
     }
 
     /**
-     * @link https://api.reyden-x.com/docs#/default/get_user_v1_user__get
+     * @link https://api.reyden-x.com/docs#/User/get_user_v1_user__get
      * @return Model\User
      * @throws BaseException
      *
