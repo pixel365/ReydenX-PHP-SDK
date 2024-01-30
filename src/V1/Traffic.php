@@ -47,4 +47,21 @@ class Traffic
         $res = $this->client->get('/v1/traffic/languages/');
         return new Result($res, Model\Traffic::class);
     }
+
+    /**
+     * @link https://api.reyden-x.com/docs#/Traffic/Traffic_statistics_by_device_type_v1_traffic_devices__get
+     * @return Result
+     * @throws BaseException
+     *
+     * @example
+     * $c = new Client('EMAIL', 'PASSWORD');
+     * $c->auth();
+     * $o = new Traffic($c);
+     * $o->getDevices();
+     */
+    public function getDevices(): Result
+    {
+        $res = $this->client->get('/v1/traffic/devices/');
+        return new Result($res, Model\Traffic::class);
+    }
 }
