@@ -5,10 +5,10 @@ namespace ReydenX\V1\Model;
 class Balance implements IDecoder
 {
     public int $id;
-    public int $amount;
     public int $currencyId;
     public int $userId;
-    public int $formattedAmount;
+    public float $amount;
+    public float $formattedAmount;
     public string $currency;
 
     public function __construct(array $data)

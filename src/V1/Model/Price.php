@@ -11,6 +11,7 @@ class Price implements IDecoder
     public string $description = '';
     public ?MinMaxStep $views = null;
     public ?MinMaxStep $onlineViewers = null;
+    public int $categoryId = 0;
 
     public function __construct(array $data)
     {
@@ -33,6 +34,8 @@ class Price implements IDecoder
             $this->views = new MinMaxStep($data['views']);
         if (isset($data['online_viewers']))
             $this->onlineViewers = new MinMaxStep($data['online_viewers']);
+        if (isset($data['category_id']))
+            $this->categoryId = $data['category_id'];
         return $this;
     }
 }
