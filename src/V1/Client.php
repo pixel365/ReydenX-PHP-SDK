@@ -115,6 +115,9 @@ class Client implements IClient
                     $r = $this->client->post($path, $opts);
                     break;
                 case 'PATCH':
+                    if (is_array($payload)) {
+                        $opts['json'] = $payload;
+                    }
                     $r = $this->client->patch($path, $opts);
                     break;
                 default:
@@ -143,12 +146,13 @@ class Client implements IClient
 
     /**
      * @param string $path
+     * @param array|null $payload
      * @return array
      * @throws BaseException
      */
-    public function patch(string $path): array
+    public function patch(string $path, ?array $payload = null): array
     {
-        return $this->request('PATCH', $path);
+        return $this->request('PATCH', $path, $payload);
     }
 
     /**

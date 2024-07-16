@@ -28,7 +28,7 @@ interface IClient
     /**
      * @throws BaseException
      */
-    public function patch(string $path): array;
+    public function patch(string $path, ?array $payload = null): array;
 
     /**
      * @throws BaseException

@@ -5,6 +5,7 @@ namespace ReydenX\V1;
 use ReydenX\V1\Exceptions\BaseException;
 use ReydenX\V1\Exceptions\InvalidParamsException;
 use ReydenX\V1\Model\ActionResult;
+use ReydenX\V1\Model\LaunchMode;
 use ReydenX\V1\Model\TaskStatus;
 
 class Action
@@ -215,5 +216,46 @@ class Action
             }
         }
         return TaskStatus::Unknown;
+    }
+
+    /**
+     * Change Launch Mode
+     * 
+     * @link https://api.reyden-x.com/docs#/Orders/change_launch_params_v1_orders__order_id__action_change_launch__patch
+     * @param LaunchMode $mode
+     * @param int $delayTime
+     * @return ActionResult
+     * @throws BaseException
+     *
+     * @example
+     * $c = new Client("EMAIL", "PASSWORD");
+     * $c->auth();
+     * $o = new Action($c);
+     * $o->setOrderId(123456)->changeLaunchMode(LaunchMode::Delay, 15);
+     */
+    public function changeLaunchMode(LaunchMode $mode, int $delayTime = 0): ActionResult
+    {
+        $this->checkOrderId();
+        switch ($mode) {
+            case LaunchMode::Auto:
+            case LaunchMode::Manual:
+                $delayTime = 0;
+                break;
+            default:
+                if ($delayTime < 5 || $delayTime > 240) {
+                    throw new InvalidParamsException('The number of minutes for delayed start should be from 5 to 240');
+                }
+                break;
+        }
+
+        $res = $this->client->patch(
+            sprintf('/v1/orders/%s/action/change/launch/', $this->orderId),
+            [
+                'mode' => $mode,
+                'delay_time' => $delayTime,
+            ]
+        );
+        
+        return new ActionResult($res);
     }
 }
