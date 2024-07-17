@@ -12,6 +12,6 @@ $client->auth();
 $o = new Action($client);
 $o->setOrderId(12345);
 
-var_dump($o->changeLaunchMode(LaunchMode::Auto, 0));
-var_dump($o->changeLaunchMode(LaunchMode::Manual, 0));
+var_dump($o->changeLaunchMode(LaunchMode::Auto));
+var_dump($o->changeLaunchMode(LaunchMode::Manual));
 var_dump($o->changeLaunchMode(LaunchMode::Delay, 15));
