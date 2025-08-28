@@ -9,7 +9,6 @@ enum Platform
     case Trovo;
     case GoodGame;
     case VkPlay;
-
     case Kick;
 
     public function getName(): string
