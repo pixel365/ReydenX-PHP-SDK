@@ -10,6 +10,8 @@ enum Platform
     case GoodGame;
     case VkPlay;
 
+    case Kick;
+
     public function getName(): string
     {
         return strtolower($this->name);

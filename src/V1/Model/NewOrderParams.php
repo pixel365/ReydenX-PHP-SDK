@@ -2,7 +2,9 @@
 
 namespace ReydenX\V1\Model;
 
+use GuzzleHttp\Psr7\Uri;
 use ReydenX\V1\Exceptions\InvalidParamsException;
+use ReydenX\V1\Exceptions\InvalidUriException;
 use ReydenX\V1\Exceptions\NotImplementedException;
 
 class NewOrderParams implements IDecoder
@@ -15,10 +17,12 @@ class NewOrderParams implements IDecoder
     public ?SmothGain $smothGain = null;
     public int $delayTime = 0;
     public string|int $contentId = 0;
+    public int $fixedAllocation = 0;
+    public bool $noOverflow = false;
 
     /**
      * @throws NotImplementedException
-     * @throws InvalidParamsException
+     * @throws InvalidParamsException|InvalidUriException
      */
     public function __construct(array $data, string $model = self::class)
     {
@@ -32,14 +36,13 @@ class NewOrderParams implements IDecoder
     {
         return match ($this->platform) {
             Platform::Twitch => 'twitch_id',
-            Platform::YouTube => 'channel_url',
+            Platform::YouTube, Platform::Kick => 'channel_url',
             default => '',
         };
     }
 
     /**
-     * @throws InvalidParamsException
-     * @throws NotImplementedException
+     * @throws InvalidParamsException|NotImplementedException|InvalidUriException
      */
     public function decode(array $data, string $model = self::class): static
     {
@@ -60,6 +63,10 @@ class NewOrderParams implements IDecoder
         }
         if (isset($data['delay_time']))
             $this->delayTime = intval($data['delay_time']);
+        if (isset($data['fixed_allocation']))
+            $this->fixedAllocation = intval($data['fixed_allocation']);
+        if (isset($data['no_overflow']))
+            $this->noOverflow = boolval($data['no_overflow']);
 
         switch ($this->platform) {
             case Platform::Twitch:
@@ -72,6 +79,7 @@ class NewOrderParams implements IDecoder
                 }
                 break;
             case Platform::YouTube:
+            case Platform::Kick:
                 if (!isset($data['channel_url']))
                     throw new InvalidParamsException('`channel_url` is required');
 
@@ -82,6 +90,25 @@ class NewOrderParams implements IDecoder
             default:
                 throw new NotImplementedException();
         }
+
+        if ($this->platform == Platform::YouTube || $this->platform == Platform::Kick) {
+            $uri = new Uri($this->contentId);
+            if ($uri->getScheme() !== 'https')
+                throw new InvalidUriException('invalid URI scheme');
+            if (strlen($uri->getPath()) < 1)
+                throw new InvalidUriException('invalid URI path');
+
+            if ($this->platform == Platform::YouTube) {
+                if (!($uri->getHost() == 'youtube.com' || $uri->getHost() == 'www.youtube.com'))
+                    throw new InvalidUriException('invalid URI host');
+            }
+
+            if ($this->platform == Platform::Kick) {
+                if (!($uri->getHost() == 'kick.com' || $uri->getHost() == 'www.kick.com'))
+                    throw new InvalidUriException('invalid URI host');
+            }
+        }
+
         return $this;
     }
 }

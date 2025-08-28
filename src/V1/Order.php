@@ -279,6 +279,8 @@ class Order
                 'minutes' => $params->smothGain->enabled
             ],
             'delay_time' => $params->delayTime,
+            'fixed_allocation' => $params->fixedAllocation,
+            'no_overflow' => $params->noOverflow,
             $params->contentIdKey() => $params->contentId,
         ];
         $res = $this->client->post(
